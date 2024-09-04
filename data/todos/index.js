@@ -8,7 +8,7 @@ const getTodos = async () => {
   try {
     let pool = await sql.connect(config.sql);
     const sqlQueries = await utils.loadSqlQueries('todos');
-    const list = await pool.request().quary(sqlQueries.allTodo);
+    const list = await pool.request().query(sqlQueries.allTodo);
     return list.recordset;
   } catch (error) {
     return error.message;

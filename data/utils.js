@@ -13,7 +13,7 @@ const loadSqlQueries = async (foldername) => {
     const query = await fs.readFileSync(join(filepath, sqlfile), {
       encoding: 'utf-8',
     });
-    queries[(sqlfile.replace('.sql'), '')] = query;
+    queries[sqlfile.replace('.sql', '')] = query;
   }
   return queries;
 };
