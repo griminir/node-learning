@@ -21,6 +21,7 @@ const getTodoById = async (id) => {
     const sqlQueries = await utils.loadSqlQueries('todos');
     const oneTodo = await pool
       .request()
+      // first part of input is what it looks for in sql statment @x
       .input('id', sql.Int, id)
       .query(sqlQueries.TodoById);
     if (oneTodo.recordset.length === 0) {
