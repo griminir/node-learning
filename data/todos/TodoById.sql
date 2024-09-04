@@ -1,0 +1,1 @@
+SELECT [Id], [task], [IsActive], [IsComplete] From [dbo].[ToDoItems] where [Id]=@id

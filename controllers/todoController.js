@@ -11,6 +11,17 @@ const getTodos = async (req, res, next) => {
   }
 };
 
+const getTodoById = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const oneTodo = await todoData.getTodoById(id);
+    res.send(oneTodo);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
 module.exports = {
   getTodos,
+  getTodoById,
 };

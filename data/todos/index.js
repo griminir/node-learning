@@ -15,6 +15,24 @@ const getTodos = async () => {
   }
 };
 
+const getTodoById = async (id) => {
+  try {
+    let pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries('todos');
+    const oneTodo = await pool
+      .request()
+      .input('id', sql.Int, id)
+      .query(sqlQueries.TodoById);
+    if (oneTodo.recordset.length === 0) {
+      return 'no Id matching that task';
+    }
+    return oneTodo.recordset;
+  } catch (error) {
+    return error.message;
+  }
+};
+
 module.exports = {
   getTodos,
+  getTodoById,
 };
