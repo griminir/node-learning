@@ -11,10 +11,10 @@
 
 
 learning flow:
-index.js
-config.js
-data/utils.js
-data/todos/index.js
-controllers/todoController.js
-routes/todoRoutes.js
-then it all loops back into Index.js
+1. index.js
+2. config.js
+3. data/utils.js
+4. data/todos/index.js
+5. controllers/todoController.js
+6. routes/todoRoutes.js
+7. then it all loops back into Index.js
