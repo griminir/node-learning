@@ -24,9 +24,6 @@ const getTodoById = async (id) => {
       // first param of input is what it looks for in sql statment @x
       .input('id', sql.Int, id)
       .query(sqlQueries.TodoById);
-    if (oneTodo.recordset.length === 0) {
-      return 'no Id matching that task';
-    }
     return oneTodo.recordset;
   } catch (error) {
     return error.message;
