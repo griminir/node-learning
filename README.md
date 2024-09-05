@@ -7,7 +7,7 @@
 6. install open project and install node packages: npm i or if you use pnpm use: pnpm i
 7. run the database creation script(dbscript.sql) in a sql server managment studio in a query window (remember to swap where it asks you for db name)
 8. set up the .env file as shown in envTemplate.md
-9. if you dont have a user user a password for your server create on or activate your sa profile in sql server managment studio
+9. if you dont have a user/user_password for your server create one or activate your sa profile in sql server managment studio
 
 
 learning flow:
