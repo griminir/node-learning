@@ -46,8 +46,25 @@ const createTask = async (taskData) => {
   }
 };
 
+const updateTaskComplete = async (id, taskData) => {
+  try {
+    let pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries('todos');
+    const updateTodo = await pool
+      .request()
+      .input('id', sql.Int, id)
+      .input('isActive', sql.Bit, taskData.isActive)
+      .input('isComplete', sql.Bit, taskData.isComplete)
+      .query(sqlQueries.updateTodo);
+    return updateTodo.recordset;
+  } catch (error) {
+    return error.message;
+  }
+};
+
 module.exports = {
   getTodos,
   getTodoById,
   createTask,
+  updateTaskComplete,
 };
