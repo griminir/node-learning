@@ -18,3 +18,5 @@ learning flow:
 5. controllers/todoController.js
 6. routes/todoRoutes.js
 7. then it all loops back into Index.js
+
+### see the post, put, delete work use a tool like postman
