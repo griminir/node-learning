@@ -15,6 +15,17 @@ const getTodos = async () => {
   }
 };
 
+const getActiveTodos = async () => {
+  try {
+    let pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries('todos');
+    const list = await pool.request().query(sqlQueries.allActiveTodos);
+    return list.recordset;
+  } catch (error) {
+    return error.message;
+  }
+};
+
 const getTodoById = async (id) => {
   try {
     let pool = await sql.connect(config.sql);
@@ -82,4 +93,5 @@ module.exports = {
   createTask,
   updateTaskComplete,
   deleteTask,
+  getActiveTodos,
 };

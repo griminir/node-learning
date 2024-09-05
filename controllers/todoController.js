@@ -11,6 +11,15 @@ const getTodos = async (req, res, next) => {
   }
 };
 
+const getActiveTodos = async (req, res, next) => {
+  try {
+    const todos = await todoData.getActiveTodos();
+    res.send(todos);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
 const getTodoById = async (req, res, next) => {
   try {
     const id = req.params.id;
@@ -61,4 +70,5 @@ module.exports = {
   addTask,
   updateTaskComplete,
   deleteTask,
+  getActiveTodos,
 };
