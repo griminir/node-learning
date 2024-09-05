@@ -8,3 +8,13 @@
 7. run the database creation script in a sql server managment studio in a query window (remember to swap where it asks you for db name)
 8. set up the .env file as shown in envTemplate.md
 9. if you dont have a user user a password for your server create on or activate your sa profile in sql server managment studio
+
+
+learning flow:
+index.js
+config.js
+data/utils.js
+data/todos/index.js
+controllers/todoController.js
+routes/todoRoutes.js
+then it all loops back into Index.js
