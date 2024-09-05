@@ -24,7 +24,18 @@ const getTodoById = async (req, res, next) => {
   }
 };
 
+const addTask = async (req, res, next) => {
+  try {
+    const data = req.body;
+    const created = await todoData.createTask(data);
+    res.send(created);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
 module.exports = {
   getTodos,
   getTodoById,
+  addTask,
 };
