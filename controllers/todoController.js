@@ -45,9 +45,20 @@ const updateTaskComplete = async (req, res, next) => {
   }
 };
 
+const deleteTask = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const deletedTodo = await todoData.deleteTask(id);
+    res.send(deletedTodo);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+
 module.exports = {
   getTodos,
   getTodoById,
   addTask,
   updateTaskComplete,
+  deleteTask,
 };

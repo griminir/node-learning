@@ -62,9 +62,24 @@ const updateTaskComplete = async (id, taskData) => {
   }
 };
 
+const deleteTask = async (id) => {
+  try {
+    let pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries('todos');
+    const deleted = await pool
+      .request()
+      .input('id', sql.Int, id)
+      .query(sqlQueries.deleteTodo);
+    return deleted.recordset;
+  } catch (error) {
+    return error.message;
+  }
+};
+
 module.exports = {
   getTodos,
   getTodoById,
   createTask,
   updateTaskComplete,
+  deleteTask,
 };
